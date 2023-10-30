@@ -1,0 +1,302 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+{% load operation %}
+{% block title %} {{lessons.name}} {% endblock %}
+
+{% block image_block %}
+
+{% endblock %}
+
+{% block content %}
+
+<div style="width: 100%;" class="d-flex flex-column  align-items-center">
+  <div style="width: 90% ;height: 100%; margin-top: 9rem;margin-bottom: -4.4rem;" class=" row d-flex  justify-content-center mb-2">
+    <div style="width: 100%; " class="d-flex justify-content-start">
+      <a class="navbar-brand color_encabezado" href="{% url 'niveles:standard_list' %}" ><img class="logos-nav" style="width: 100px" src="https://cdn-icons-png.flaticon.com/512/5093/5093116.png" alt="Niveles"></a> 
+    </div>
+    <div style="">
+        <h2 class="mb-3 mt-3 font-weight-bold text-center" style="color:black;font-size: 3rem;">Detalles del Capitulo</h2>
+    </div>
+  </div>
+
+
+  <div style="width: 80%;flex-direction: row;display:flex;justify-content: center;" class="mt-5">
+    <div style="width: 100%;flex-direction:row;display:flex;justify-content: center;" class="">
+      <section class="text-center" style="width: 100%;">
+          <div class="d-flex col align-items-center" >
+            <div class="d-flex row " style="text-align: start;background-color: white;padding: 2rem; border-color: blue;width: 40%;">
+              <h2 >Nivel Academico:{{lessons.Standard.name}}</h2>
+              <h2 >Curso:{{lessons.subject.name}}</h2>
+              <h2 >Capitulo:{{lessons.position}}</h2>
+              <h2 >Tema:{{lessons.name}}</h2>
+            </div>
+        
+
+            <div class="row d-flex justify-content-end" style="width:60%;">
+              <div id="player-overlay">
+                    <video controls >
+                        <source style="width: 100%;" src="{{lessons.video.url}}"  type="video/mp4">
+                    </video>
+              </div>
+            </div>
+          </div>
+  
+          <div class="row d-flex justify-content-center mb-3 mt-3">
+            <!-- download presentations -->
+                      <div class="col-md-4 mb-4 mt-4">
+                        <div class="card box-shadow-hover">
+                          <div class="card-body">
+                            <h5 class="card-title"></h5>
+                            {% if lessons.ppt %}
+                            <p class="card-text"><strong>Pdf del capitulo</strong> </p>
+                            <img src="https://cdn-icons-png.flaticon.com/512/5360/5360522.png" style="width: 40%;"alt="">
+                            <p></p>
+                            <a href="{{lessons.ppt.url}}" download>
+                            <button type="button" class="btn btn-outline-primary"><span>Descargar</span></button>
+                            </a>
+                            {% else %}
+                            <p class="card-text" > No existe el PPT</p>
+                            {% endif %}
+
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-md-4 mb-4 mt-4">
+                        <div class="card box-shadow-hover">
+                          <div class="card-body">
+                            <h5 class="card-title"></h5>
+                            {% if lessons.Notes %}
+                            <p class="card-text"><strong>Apuntes del capitulo</strong></p>
+                            <img src="https://cdn-icons-png.flaticon.com/512/3534/3534049.png" style="width: 40%;"alt="">
+                            <p></p>
+                            <a href="{{lessons.Notes.url}}" download>
+                            <button type="button" class="btn btn-outline-success"><span>Descargar</span></button>
+                            </a>
+                            {% else %}
+                            <p class="card-text">Notas no disponibles</p>
+                            {%endif%}
+
+                          </div>
+                        </div>
+                      </div>
+
+
+                      {% comment %} <div class="col-md-4 mb-4 mt-4">
+                        <div class="card box-shadow-hover">
+                          <div class="card-body">
+                            <h5 class="card-title">Descargar Video</h5>
+                            <p class="card-text">Descargar Video del capitulo</p>
+                            <a style:"width:40px"href="{{lessons.video.url}}" download>
+                            <button type="button" class="button-les"><span>Descargar</span></button>
+                            </a>
+                          </div>
+                        </div>
+                      </div> {% endcomment %}
+          </div>
+        
+
+          <div class="row d-flex justify-content-center mb-3 mt-3">
+            
+              {% if user.userprofileinfo.user_type == 'teacher' or user.is_superuser %}
+              {% comment %} <div class="col-md-6 mb-3 text-center">
+                  <a href="{% url 'niveles:lesson_update' standard=lessons.Standard.slug subject=lessons.subject.slug slug=lessons.slug %}" class="btn btn-info btn-lg mr-4 btn-block">Actualizar Capitulo</a>
+              </div>
+              <div class="col-md-6">
+                  <a href="{% url 'niveles:lesson_delete' standard=lessons.Standard.slug subject=lessons.subject.slug slug=lessons.slug %}" class="btn btn-danger btn-lg mr-4 btn-block">Eliminar Capitulo </a>
+              </div> {% endcomment %}
+              {% endif %}
+            </div>
+      </section>
+    </div>
+  </div>
+
+
+  <section class="gradient-custom w-100" style="">
+    <div class="container my-5 py-5">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-12 col-lg-10 col-xl-8">
+          <div class="card">
+            <div class="card-body p-4">
+
+              <div style="display: flex; justify-content: center;">
+                <img src="https://cdn-icons-png.flaticon.com/512/2767/2767006.png"  style="width: 20%;" alt="">
+                <div style="display: flex;flex-direction: column;justify-content: center;">
+                  <h4 class="text-center mb-4 pb-2">Comentarios sobre el capitulo {{lessons.name}}</h4>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col">
+
+                  <div class="card-footer py-3 border-0" style="background-color: #f8f9fa;">
+
+
+
+
+
+                    <div class="d-flex flex-start w-100">
+                      
+                      {% comment %} <img class="rounded-circle shadow-1-strong me-3"
+                      src='../../../../media/{{user.userprofileinfo.profile_pic | default:"Images/User_Profile_Pictures/None.jpg"}}'alt="avatar" width="40"
+                        height="40" /> {% endcomment %}
+                      {%if user.userprofileinfo.user_type == 'teacher' or user.userprofileinfo.user_type == 'student' %}
+                       {% for usuario in usuarios %}
+                        {% if usuario.user.username|parseada == user.username|parseada  %}
+                          <img class="rounded-circle shadow-1-strong me-3"
+                          src='../../../../media/{{usuario.profile_pic}}' alt="imagen" width="65"
+                          height="65" /> 
+                        {% endif %}                      
+                       {% endfor %}
+                                 
+                      {% else %}
+                        <img class="rounded-circle shadow-1-strong me-3"
+                        src='../../../../media/Images/User_Profile_Pictures/None.jpg' alt="imagen" width="65"
+                        height="65" />
+                      {%endif%}
+                      <div class="form-outline w-100">
+                    
+                        <form method="post">
+                          <div class="form-group">
+                            {% csrf_token %}
+                            {{form|crispy}}
+                            <div class="float-end mt-2 pt-1">
+                              <button type="submit" name="form" class="btn btn-primary btn-sm">Enviar comentario</button>
+                              <button type="button" class="btn btn-outline-primary btn-sm">Cancel</button>
+                            </div>                        
+                          </div>
+                        </form>
+                        
+                      </div>
+                    </div>
+              
+                  </div>               
+
+                  {% for comment in lessons.comments.all %}
+                    <div class="d-flex flex-start mt-4">
+                      
+                        {%if comment.author|parseada == "admin" or comment.author|parseada == "admin1" %}
+                          <img class="rounded-circle shadow-1-strong me-3"
+                          src='../../../../media/Images/User_Profile_Pictures/None.jpg' alt="imagen" width="65"
+                          height="65" />
+
+                        {% else %}
+                          {% for usuario in  usuarios %}
+                            {% if comment.author|parseada == usuario.user.username|parseada %}                            
+                              <img class="rounded-circle shadow-1-strong me-3"
+                              src='../../../../media/{{usuario.profile_pic}}' alt="imagen" width="65"
+                              height="65" />
+                            {% endif %}
+                          
+                          {% endfor %}
+           
+                        {%endif%}
+                        {% comment %} {%for usuario in usuarios%}
+                          
+                            {%if usuario.user|parseada == comment.author|parseada %}
+                          
+                              <img class="rounded-circle shadow-1-strong me-3"
+                              src='../../../../media/{{usuario.profile_pic | default:"Images/User_Profile_Pictures/None.jpg"}}' alt="imagen" width="65"
+                              height="65" />
+                              
+                            {%endif %}
+
+                        {%endfor%} {% endcomment %}
+                      
+
+                      <div class="flex-grow-1 flex-shrink-1">
+                        <div>
+                          <div class="d-flex justify-content-between align-items-center">
+                            <p class="mb-1">
+                              {{comment.author}}<span class="small">- Fecha de publicacion: {{comment.date_added}}</span>
+                            </p>
+        
+                          </div>
+                          <p class="small mb-0">
+                            {{comment.body}}
+                          </p>
+                        </div>
+                        {% for reply in comment.replies.all %}
+                          {%if reply.author|parseada == "admin" or reply.author|parseada == "admin1" %}
+                            <div class="d-flex flex-start mt-4">
+                              <a class="me-3" href="#">
+                                  <img class="rounded-circle shadow-1-strong me-3"
+                                  src='../../../../media/Images/User_Profile_Pictures/None.jpg' alt="imagen" width="65"
+                                  height="65" />
+                              </a>
+                              <div class="flex-grow-1 flex-shrink-1">
+                                <div>
+                                  <div class="d-flex justify-content-between align-items-center">
+                                    <p class="mb-1">
+                                      {{reply.author}} <span class="small">- Fecha: {{reply.date_added}}</span>
+                                    </p>
+                                  </div>
+                                  <p class="small mb-0">
+                                    {{reply.reply_body}}
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          
+                          {% else %}
+                            {%for usuario in usuarios%}
+                              {%if usuario.user.username|parseada == reply.author|parseada%}
+                                <div class="d-flex flex-start mt-4">
+                                  <a class="me-3" href="#">
+                                      <img class="rounded-circle shadow-1-strong me-3"
+                                      src='../../../../media/{{usuario.profile_pic}}' alt="imagen" width="65"
+                                      height="65" />
+                                  </a>
+                                  <div class="flex-grow-1 flex-shrink-1">
+                                    <div>
+                                      <div class="d-flex justify-content-between align-items-center">
+                                        <p class="mb-1">
+                                          {{reply.author}} <span class="small">- Fecha: {{reply.date_added}}</span>
+                                        </p>
+                                      </div>
+                                      <p class="small mb-0">
+                                        {{reply.reply_body}}
+                                      </p>
+                                    </div>
+                                  </div>
+                                </div>
+                              {%endif%}
+                            {% endfor %}
+                          {% endif %}                                                
+                        {% endfor %}
+                        <div class="card-footer py-3 border-0" style="background-color: #f8f9fa;">
+                          <div class="d-flex flex-start w-100">
+                            <img class="rounded-circle shadow-1-strong me-3"
+                              src='../../../../media/{{user.userprofileinfo.profile_pic | default:"Images/User_Profile_Pictures/None.jpg"}}' alt="avatar" width="40"
+                              height="40" />
+                            <div class="form-outline w-100">
+                              <form method="post" style="width: 75%;">
+                                <input type="hidden" name="comment.id" value="{{comment.id}}">
+                                <input type="hidden" name="comment.comm_name" value="{{comment.comm_name}}">
+                                {% csrf_token %}
+                                {{form2.as_p}}
+                                <div class="float-end mt-2 pt-1">
+                                  <input type="submit" name="form2" class="btn btn-primary btn-sm" value="Responder">
+                                  <button type="button" class="btn btn-outline-primary btn-sm">Cancel</button>
+                                </div>
+                              </form>                         
+                            </div>
+                          </div>
+
+                        </div>                                  
+                      </div>
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+{%endblock%}
+

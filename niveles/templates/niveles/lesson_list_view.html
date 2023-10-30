@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} {{.name}} {% endblock %}
+
+{% block image_block %}
+<header class="info-header">
+  <div id="page-intro" class="container-fluid d-flex align-items-center justify-content-center  ">
+    {% comment %} <div class="row d-flex justify-content-center text-center mt-5">
+      <div class="col-md-10 text-white">
+        <!-- heading -->
+        <h2 class="display-4 font-weight-bold  p-5 " style="color:white;" > {{subjects.name}} </h2>
+        <div class="row d-flex justify-content-center text-center">
+          <ul class="breadcrumb">
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'niveles:standard_list' %}">niveles</a></li>
+            <li><a href="{% url 'niveles:subject_list' slug=subjects.standard.slug %}">{{subjects.standard}}</a></li>
+            <li class="disabled-text" >{{subjects.name}}</li>
+          </ul>
+        </div>
+
+        <!-- divider -->
+        <hr style="color:#ff5722;">
+
+        <!-- description -->
+        <h4 class="white-text my-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Deleniti
+                  consequuntur.</h4>
+      </div>
+    </div> {% endcomment %}
+  </div>    
+</header>
+{% endblock %}
+
+{% block content %}
+  <div  class=" lesson-list-view row d-flex  justify-content-center">
+    <div>
+      <a class="navbar-brand color_encabezado" href="{% url 'niveles:standard_list' %}" ><img class="logos-nav" src="https://cdn-icons-png.flaticon.com/512/5093/5093116.png" alt="Niveles"></a> 
+      {% comment %} <a class="navbar-brand color_encabezado" href="{% url 'niveles:subject_list' slug=subjects.standard.slug %}"  ><img class="logos-nav" src="https://cdn-icons-png.flaticon.com/512/5093/5093116.png" alt="Niveles"></a>  {% endcomment %}
+    </div>
+  </div>
+  <section id="best-features" class="text-center">
+                <h2 class="mb-5 mt-5 font-weight-bold" style="color:#black;">Temas del curso de {{subjects.name}}</h2>
+                <!-- class row for description-->
+                <div class="row d-flex justify-content-center mb-4">
+                  <!-- class column -->
+                  <div class="col-md-8 mb-5">
+                    <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem beatae accusamus obcaecati numquam omnis totam commodi. Unde dolores, ipsa saepe at distinctio quo, assumenda incidunt voluptatem earum suscipit placeat fugiat?</p>
+                  </div>
+                </div>
+                <!-- class row2 for cards -->
+                <div class="row d-flex justify-content-center mb-3">
+                  {% for lesson in subjects.lessons.all %}
+                  <div class="col-sm-4 mb-4">
+                    <div class="card box-shadow-hover">
+                      <div class="card-body">
+                        <h5 class="card-title">Capitulo-{{lesson.position}}: {{lesson.name}}</h5>
+
+                        
+                        <a href="{% url 'niveles:lesson_detail' slug=lesson.slug subject=subjects.slug standard=lesson.Standard.slug %}" >
+                        <button type="button" class="button-les"><span>Detalles</span></button>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  {% endfor %}
+                </div>
+          <div class="row d-flex justify-content-center mb-3">
+            {% if user.userprofileinfo.user_type == 'teacher' or user.is_superuser %}
+            <a href="{% url 'niveles:lesson_create' standard=subjects.standard.slug slug=subjects.slug %}"><button type="button" class="btn btn-success btn-lg btn-bloc" > Agregar nuevo capitulo </button> </a>
+            {% endif %}
+          </div>
+  </section>
+{%endblock%}

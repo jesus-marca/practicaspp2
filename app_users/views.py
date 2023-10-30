@@ -7,7 +7,7 @@ from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from django.views.generic import TemplateView
-from curriculum.models import Standard
+from niveles.models import Standard
 from .models import UserProfileInfo, Contact
 from django.views.generic import CreateView
 

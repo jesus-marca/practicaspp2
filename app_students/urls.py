@@ -17,11 +17,11 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
 import app_users
-import curriculum
+import niveles
 
 urlpatterns = [
     path('', include('app_users.urls')),
-    path('curriculum/',include('curriculum.urls')),
+    path('niveles/',include('niveles.urls')),
     path('admin/', admin.site.urls),
 ]
 
