@@ -36,31 +36,31 @@ class StandardListView(ListView):
         "numeroComentarios":Comment.objects.all(),
         
         #de prueba
-        "subjectslot1":SlotSubject.objects.filter(standard=1),
-        "subjectslot2":SlotSubject.objects.filter(standard=2),
-        "subjectslot3":SlotSubject.objects.filter(standard=3),
-        "subjectslot4":SlotSubject.objects.filter(standard=4),
-        "subjectslot5":SlotSubject.objects.filter(standard=5),
+        # "subjectslot1":SlotSubject.objects.filter(standard=1),
+        # "subjectslot2":SlotSubject.objects.filter(standard=2),
+        # "subjectslot3":SlotSubject.objects.filter(standard=3),
+        # "subjectslot4":SlotSubject.objects.filter(standard=4),
+        # "subjectslot5":SlotSubject.objects.filter(standard=5),
         #--------------
         
         'cursos':Subject.objects.all(),
         'slots': TimeSlots.objects.all(),
         
         #de prueba
-        'cursos1': Subject.objects.filter(standard=1),
-        'cursos2': Subject.objects.filter(standard=2),
-        'cursos3': Subject.objects.filter(standard=3),
-        'cursos4': Subject.objects.filter(standard=4),
-        'cursos5': Subject.objects.filter(standard=5),
+        # 'cursos1': Subject.objects.filter(standard=1),
+        # 'cursos2': Subject.objects.filter(standard=2),
+        # 'cursos3': Subject.objects.filter(standard=3),
+        # 'cursos4': Subject.objects.filter(standard=4),
+        # 'cursos5': Subject.objects.filter(standard=5),
         #-------------
         'lessonsAll':Lesson.objects.all(),
         
         #de prueba
-        'lesson1':Lesson.objects.filter(Standard=1),
-        'lesson2':Lesson.objects.filter(Standard=2),
-        'lesson3':Lesson.objects.filter(Standard=3),
-        'lesson4':Lesson.objects.filter(Standard=4),
-        'lesson5':Lesson.objects.filter(Standard=5),
+        # 'lesson1':Lesson.objects.filter(Standard=1),
+        # 'lesson2':Lesson.objects.filter(Standard=2),
+        # 'lesson3':Lesson.objects.filter(Standard=3),
+        # 'lesson4':Lesson.objects.filter(Standard=4),
+        # 'lesson5':Lesson.objects.filter(Standard=5),
         #------------
     }
     model = Standard
@@ -118,9 +118,6 @@ class LessonDetailView(DetailView, FormView):
             form_name = 'form2'
 
         form = self.get_form(form_class)
-        # print("the form name is : ", form)
-        # print("form name: ", form_name)
-        # print("form_class:",form_class)
 
         if form_name=='form' and form.is_valid():
             print("comment form is returned")
@@ -166,11 +163,6 @@ class LessonCreateView(CreateView):
         self.object = self.get_object()
         standard = self.object.standard
   
-  
-        #regresar a la normalidad si no se puede
-        # return reverse_lazy('niveles:lesson_list',kwargs={'standard':standard.slug,
-        #                                                      'slug':self.object.slug}) 
-        # return reverse_lazy('niveles:lesson_detail', kwargs={'slug':self.slug, 'standard':self.Standard.slug,'subject':self.subject.slug})
         return reverse_lazy('niveles:standard_list')
  
  
@@ -198,9 +190,7 @@ class LessonDeleteView(DeleteView):
     def get_success_url(self):
         print(self.object)
         standard = self.object.Standard
-        subject = self.object.subject
-        #return antes de optimizar
-        # return reverse_lazy('niveles:lesson_list',kwargs={'standard':standard.slug,'slug':subject.slug})
+        subject = self.object.subject        
         return reverse_lazy('niveles:standard_list')
 
 class SlotSubjectListView(ListView):
@@ -234,11 +224,6 @@ class SlotSubjectCreateView(CreateView):
         self.object = self.get_object()
         standard = self.object.standard
   
-        # return reverse_lazy('niveles:slots_list', kwargs={'slug':self, 'standard':self.standard.slug,'subject':self.slot_subject.slug})
-        #regresar a la normalidad si no se puede
-        # return reverse_lazy('niveles:lesson_list',kwargs={'standard':standard.slug,
-        #                                                      'slug':self.object.slug}) 
-        # return reverse_lazy('niveles:slots_list', kwargs={'slug':self.slug, 'standard':self.Standard.slug,'subject':self.subject.slug})
         return reverse_lazy('niveles:slots_list')
  
  
@@ -267,41 +252,7 @@ def user_update(request,id):
 
 
 def edit_user(request):
-    # id = int(request.POST['id'])
-    # username = request.POST['username']
-    # first_name = request.POST['first_name']
-    # last_name = request.POST['last_name']
-    # email = request.POST['email']
-    # bio = request.POST['bio']
-    # user_type= request.POST['user_type']
-    # # if (request.POST['profile_pic'] != ""):
-    # #     profile_pic=request.FILES['profile_pic']
-    
-    # userprofile = UserProfileInfo.objects.get(id = id)  
-    
-    # us=User.objects.get(id=userprofile.user.id)
-    
-    # us.username = username
-    # us.first_name = first_name
-    # us.last_name = last_name
-    # us.email = email
-    
-    # us.save()
-    # userprofile.user=us
-    # userprofile.bio = bio
-    # userprofile.user_type = user_type
-    # # if (request.POST['profile_pic']):
-    # #     userprofile.save()
-    # # userprofile.profile_pic = "fdfd.png"
-    # if (request.FILES['profile_pic']):
-    #     profile_pic=request.FILES['profile_pic']
-    #     userprofile.profile_pic = profile_pic 
-
-            
-    # userprofile.save()
-        
-    # next = request.POST.get('next', '/')
-    # return HttpResponseRedirect(next)
+ 
     try :
         id = int(request.POST['id'])
         username = request.POST['username']
@@ -372,9 +323,6 @@ def edit_slot_subject(request):
     day=int(request.POST['day'])
     slot=request.POST['slot']
     
-    # slotI=horaI(slot)
-    # slotF=horaF(slot)
-    
     
     slotSubject = SlotSubject.objects.get(id = id) 
     
@@ -388,44 +336,7 @@ def edit_slot_subject(request):
     slot_item.save()
     day_item.save()
     slotSubject.save()
-    
-    
-    # print(slotSubject.slot.start_time)
-    # print(slotSubject.slot.end_time)
-    # print(slotSubject.day.id)
-    
-    
-    # slotSubject.day.id=day
-    
-    # slotSubject.slot.start_time=slotI
-    # slotSubject.slot.end_time=slotF
-    # slotSubject.save()
-    
-    # print('despues')
-    # print(slotSubject.slot.start_time)
-    # print(slotSubject.slot.end_time)
-    # print(slotSubject.day.id)
-    
-    
-    # slotSubject.save()
-    # if slotSubject.save() :
-    #     print('lo lograste')
-    # else :
-    #     print('no lo lograste')
-    # userprofile = UserProfileInfo.objects.get(id = id)    
-
-    
-    # us=User.objects.get(id=userprofile.user.id)
-    # us.username = username
-    # us.first_name = first_name
-    # us.last_name = last_name
-    # us.email = email
-    # us.save()
-    # userprofile.user=us
-    # userprofile.bio = bio
-    # userprofile.save()
-    
-    
+                
     next = request.POST.get('next', '/')
     return HttpResponseRedirect(next)
 

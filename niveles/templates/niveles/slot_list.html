@@ -125,18 +125,24 @@
                           <table id="class-time-table" class="tabla-encabezado">
                             <tr>
                               <th></th>                    
-                              <th scope="row">8 a.m.</th>
-                              <th scope="row">9 a.m.</th>
-                              <th scope="row">10 a.m.</th>
-                              <th scope="row">11 a.m.</th>
-                              <th scope="row">12 m.</th>
+                              {% comment %} <th scope="row">8 a.m. - 9 a.m.</th>
+                              <th scope="row">9 a.m. - 10 a.m.</th>
+                              <th scope="row">10 a.m. - 11 a.m.</th>
+                              <th scope="row">11 a.m. - 12 m.</th>
+                              <th scope="row">12 m. - 13 p.m.</th> {% endcomment %}
+
+                              <th scope="row">Lunes</th>
+                              <th scope="row">Martes</th>
+                              <th scope="row">Miercoles</th>
+                              <th scope="row">Jueves</th>
+                              <th scope="row">Viernes</th>
                               {% comment %} <th scope="row">1 p.m.</th>
                               <th scope="row">2 p.m.</th> {% endcomment %}
                             </tr>
 
                             <tr>
                                                             
-                              <th>Lunes</th>
+                              <th>8 a.m. - 9 a.m.</th>
                                                           
                               {% for slt in slotsAll.all %}                                
                                                               
@@ -146,11 +152,13 @@
                                   {%if subject.standard_slots_subject.all.count != 0 %}
                                                                             
                                       {%for slot in subject.standard_slots_subject.all %}
-                                              
-                                        {%if slot.day.id == 1 and slot.slot == slt %}                                                                                                                                         
+                                     
+                                    
+                                    
+                                        {%if slot.day.id == 1 and slot.slot.id == slt.id %}                                                                                                                                    
                                           <td  style="background-color: hsl({{slot.slot_subject.id|multiplicar }}, 71%, 82%);" >{{slot.slot_subject}} </td>   
                                           {% define 1 as variable %}                                                                                                                                                                                        
-                                        {% endif %}                                                    
+                                        {% endif %}                                                   
                                       {%endfor%}                                                                                                                                                           
                                   {% endif %}
                                   {% if total.all.count|add:variable == total.all.count %}
@@ -163,7 +171,7 @@
                             
                             </tr>
                             <tr>
-                              <th>Martes</th>
+                              <th>9 a.m. - 10 a.m.</th>
                               {% for slt in slotsAll.all %}
                               
                                   {%for subject in a.subjects.all%}
@@ -173,7 +181,7 @@
                                               {%if slot.day.id == 2 %} 
                                               
                                               
-                                                  {% if  slot.slot == slt %}
+                                                  {% if  slot.slot.id == slt.id %}
                                                       <td  style="background-color: hsl({{slot.slot_subject.id | multiplicar }}, 71%, 82%);" >{{slot.slot_subject}}</td> 
                                                   
                                                   {% endif %}
@@ -183,7 +191,7 @@
                               {% endfor %}
                             </tr>
                             <tr>
-                              <th>Miercoles</th>
+                              <th>10 a.m. - 11 a.m.</th>
                               {% for slt in slotsAll.all %}
                               
                                   {%for subject in a.subjects.all%}
@@ -193,7 +201,7 @@
                                               {%if slot.day.id == 3 %} 
                                               
                                               
-                                                  {% if  slot.slot == slt %}
+                                                  {% if  slot.slot.id == slt.id %}
                                                       <td  style="background-color: hsl({{slot.slot_subject.id | multiplicar }}, 71%, 82%);" >{{slot.slot_subject}}</td> 
                                                   
                                                   {% endif %}
@@ -203,24 +211,44 @@
                               {% endfor %}
                             </tr>
                             <tr>
-                              <th>Jueves</th>
-                              {%for slot in subjectsAll%}
-                            
-                                {%if slot.day.id == 4 %}                          
-                                  {%if slot.standard|parseada == a.name|parseada %}                                                           
-                                    <td  style="background-color: hsl({{slot.slot_subject.id | multiplicar }}, 71%, 82%);" >{{slot.slot_subject}}</td>                                                {%endif%}                                     
-                                {% endif %}    
-                              {% endfor %}
+                              <th>11 a.m. - 12 m.</th>
+                              {% for slt in slotsAll.all %}
+                              
+                              {%for subject in a.subjects.all%}
+
+                                      {%for slot in subject.standard_slots_subject.all %}
+                                      
+                                          {%if slot.day.id == 4 %} 
+                                          
+                                          
+                                              {% if  slot.slot.id == slt.id %}
+                                                  <td  style="background-color: hsl({{slot.slot_subject.id | multiplicar }}, 71%, 82%);" >{{slot.slot_subject}}</td> 
+                                              
+                                              {% endif %}
+                                          {% endif %}
+                                      {%endfor%}                                                                                                                      
+                              {%endfor%}  
+                          {% endfor %}
                             </tr>
                             <tr>
-                              <th>Viernes</th>
-                              {%for slot in subjectsAll%}
-                            
-                                {%if slot.day.id == 5 %}                          
-                                  {%if slot.standard|parseada == a.name|parseada %}                                                           
-                                    <td  style="background-color: hsl({{slot.slot_subject.id | multiplicar }}, 71%, 82%);" >{{slot.slot_subject}}</td>                                                {%endif%}                                     
-                                {% endif %}    
-                              {% endfor %}
+                              <th>12 m. - 13 p.m.</th>
+                              {% for slt in slotsAll.all %}
+                              
+                              {%for subject in a.subjects.all%}
+
+                                      {%for slot in subject.standard_slots_subject.all %}
+                                      
+                                          {%if slot.day.id == 5 %} 
+                                          
+                                          
+                                              {% if  slot.slot.id == slt.id %}
+                                                  <td  style="background-color: hsl({{slot.slot_subject.id | multiplicar }}, 71%, 82%);" >{{slot.slot_subject}}</td> 
+                                              
+                                              {% endif %}
+                                          {% endif %}
+                                      {%endfor%}                                                                                                                      
+                              {%endfor%}  
+                          {% endfor %}
                               
                             </tr>
                           </table>
