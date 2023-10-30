@@ -1,1 +1,1 @@
-web: python manage.py migrate && gunicorn teaching_blog.wsgi
+web: python manage.py migrate && gunicorn app_students.wsgi
