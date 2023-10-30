@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "fluid-amulet-402905",
+  "private_key_id": "6648a7a217a200890c19ccab72a3c2b9a02dbe60",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQCtOfo3/uI5AeOG\nnw1k2znMvD+z+fCn2YO28mnwxxaVl/7eP3cs41faXOsFD25DwrFuPtVaatzqypwc\n8+LVxkiFnuePxi8Ngfri35AEYTvQlciPtYqu0B/6YInhcfNfITR9BP7wXG3ggz1r\nnJhG6WX5zMAjhuIq8KtFngb+9ZePAWPzCgySVQfj6M+3JFr+Z/dIFOoUsgbUxsUG\nThF/Hkhelndl1oycTQu8WPk1j0LfBYa+0/MMi6Vfm2kijFmVfzmiM923oiVHvf4t\nyIJFD4tE9zxf/WvFCZdNvm7nIx8gNFu6bxlTMc7HdPEdtT6p87+sOdhiRtEc0US8\no8wXJ3CHAgMBAAECggEAGPkKwZfVNTK4gmfbnnacVo+s/11A/HG3M2CvNS7+aoKH\nE7NCkw4TVD+hAhG/a7Vdru8QAwD06ERdTS87vGXhfqHx8CA6GFBswthIAtmhrehq\nCY26eIk4kvfn6MBsvYIj9wIJXs10abGB4UmqCk8LjH+gE38Wi+o2RssJZygwuUTV\nVCDtsjDjA5gxOrxWXB+Pw5AInlPm5McgaG5dplYG/nBn+kRF49eYBwIZFG9Z87kC\nGz868hYuj6eyXPvyX7VhpTgGDRo8BIw16yzZsEkSRH+0eirCGFUhzyHXRoHdvHqZ\nYDFVs96EmnDmD2Px+TiXByZopQXL8CFlZADQ9MHngQKBgQDSpOolaXvrmy4jrAK1\ngcVhQ57qA3SGGOiNLQcQ5K2VkEplH/QH0nOXJr+3q45HdVw6kBYdPnqXAnh1pyfx\natTEc+Z9yZXMIpMDZZmcvVZ72eYW/SQMGtL0baQu9hUfafOnFuHxzAZNi7LM7hAp\nGynMvMKBl+ZFeYXcjwolmqTx6QKBgQDShofmpDndFXxUZBI59W4GACGQsb2vwOhD\n/+UTjR4u5DTrncbEuy10n0umzuxu3Yz1y20/VYO1HXRmdSbc53mmGXKR3SH+kfpb\nedsX5blssXZZW+7vS/D/GhjGiyTcbIsdQszwwxmAH6WDxZebmHlOM2IaANPWsePc\nN9Y11YXY7wKBgQCEpaFlSdXlemVFxW43Sq83HtQV3XMlds4LCQ3oD3lYM/MFV2fe\n/SIZTydvzDLewQMBRfcHF28vZTjiLg8zMekmhS3ijG0ujZ8yhmqDj5/EgmUomOR4\nUvQBRIIdqI2IqLnswLYsBCT79Dr2XfwDRr291ihOX498tJgdWl4za/zu8QKBgQCs\nvtck2fzg/JBYbwTFqi3tno3sPOx5GsF7iq5drJ3nvDnwXDaNl0llOJDK/1/iWMkh\npxqtrW21X8XzjI2nFgkr0hXAusL6MK5OAV9V7JqKJdQG3vjgQmAt8ywBPouwkyBT\nkky4Al8aUt1tkuUkN6jSEjedPrCUqsNeIDMVWW/K4QKBgQCPbm9y/L6V9O3NRWJj\nDfkOzsisIyDnYs4otXUBh0ycmJAUfM21bF27YL24P7HGca18U0GcBjR7FCwlodIO\np7I4EfGczud95nnpSAR9DGhgts0rASoCH/rrxX0GLF5PU7sWs0XsNHarGRSqa8Gx\na2wMpKyXfTU14a7hvXiDysU64w==\n-----END PRIVATE KEY-----\n",
+  "client_email": "djangoproyectopp2@fluid-amulet-402905.iam.gserviceaccount.com",
+  "client_id": "106784134544610694859",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/djangoproyectopp2%40fluid-amulet-402905.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

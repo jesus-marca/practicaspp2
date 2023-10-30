@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
-
+from google.oauth2 import service_account
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATE_DIR = os.path.join(BASE_DIR,'templates')
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'app_users',
     'niveles',
     'crispy_forms',
+    'upload',#upload google cloud
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -170,6 +171,16 @@ MEDIA_URL = '/media/'
 # DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 # GS_BUCKET_NAME = 'pack-djangopp2'
 # STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+
+GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
+    os.path.join(BASE_DIR, 'fluid-amulet-402905-6648a7a217a2.json')
+)
+DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+GS_BUCKET_NAME = 'pack-djangopp2'
+
+
+
+
 
 LOGIN_URL = '/app_users/user_login'
 

@@ -23,6 +23,8 @@ urlpatterns = [
     path('', include('app_users.urls')),
     path('niveles/',include('niveles.urls')),
     path('admin/', admin.site.urls),
+    
+    path('upload/', include('upload.urls')),
 ]
 
 from django.conf import settings
