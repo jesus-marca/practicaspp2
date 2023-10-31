@@ -112,7 +112,7 @@
                                     <tr style="width: 90%;">  
                                         <td style="width: 10%;">{{user.user.username}}</td>
                                         <td style="width: 10%;">{{user.user.email}}</td>
-                                        <td style="width: 10%;"><a type="button" class="imagen-usuario" style="text-decoration: none;"  data-bs-toggle="modal" data-bs-target={{user.user.username|combinacion}} aria-expanded="false" href=""><img style="width: 40px;height: 40px;border-radius: 1000px;" src="../../../media/{{user.profile_pic}}" alt="no hay"></a></td>  
+                                        <td style="width: 10%;"><a type="button" class="imagen-usuario" style="text-decoration: none;"  data-bs-toggle="modal" data-bs-target={{user.user.username|combinacion}} aria-expanded="false" href=""><img style="width: 40px;height: 40px;border-radius: 1000px;" src="{{user.profile_pic.url}}" alt="no hay"></a></td>  
                                         <td style="width: 20%;">{{user.user.first_name}}</td>
                                         <td style="width: 15%;">{{user.user.last_name}}</td>      
                                         <td style="width: 15%;">{{user.user_type|renombrar}}</td> 
