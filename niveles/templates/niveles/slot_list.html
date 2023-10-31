@@ -13,100 +13,15 @@
 
 {% comment %} <link rel="stylesheet" href="https://dl.dropbox.com/scl/fi/mji6gnf1x22n1mczabfb0/principal_style.css?rlkey=a00iz56alb8eh01rla3lbbyux&dl=0"> {% endcomment %}
 
-{% comment %} <link rel="stylesheet" href="{% static 'css/secundary_style.css' %}"> {% endcomment %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 <div style="height: 15vh;"></div>
-{% comment %} <header class="info-header">
-  <div id="page-intro" class="container-fluid d-flex align-items-center justify-content-center"> 
-    <div class="row d-flex justify-content-center text-center " style="width: 40%; justify-self: center;align-self: center;margin-top: 5rem;">
-      <div id="carouselExample" class="carousel slide" style=" margin-left:0px;width: 100%;">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img style="width:100%;" src="https://www.sneakerlost.es/hubfs/Las-universidades-se-adaptan-a-las-necesidades-02.png" class="d-block " alt="nueva imagen2">
-            <p style="color: white;font-size: 1.5rem ;">Primero de primaria</p>
-          </div>
-          <div class="carousel-item">
-            <img style="width:100%;" src="https://www.sneakerlost.es/hubfs/Como-atraer-y-retener-alumnos-extranjeros-01.png?noresize" class="d-block " alt="nueva imagen2">
-            <p style="color: white;font-size: 1.5rem ;">Segundo de primaria</p>
-          </div>
-          <div class="carousel-item">
-            <img style="width:100%;" src="https://www.sneakerlost.es/hubfs/5-ejemplos-de-como-fijar-los-objetivos-SMART-02.png" class="d-block " alt="nueva imagen2">
-            <p style="color: white;font-size: 1.5rem;;">Tercero de primaria</p>
-          </div>
-          <div class="carousel-item">
-            <img style="width:100%;" src="https://www.sneakerlost.es/hubfs/5-ejemplos-de-como-fijar-los-objetivos-SMART-02.png" class="d-block " alt="nueva imagen2">
-            <p style="color: white;font-size: 1.5rem;;">Cuarto de primaria</p>
-          </div>
-          <div class="carousel-item">
-            <img style="width:100%;" src="https://www.sneakerlost.es/hubfs/5-ejemplos-de-como-fijar-los-objetivos-SMART-02.png" class="d-block " alt="nueva imagen2">
-            <p style="color: white;font-size: 1.5rem;;">Quinto de primaria</p>
-          </div>
-          <div class="carousel-item">
-            <img style="width:100%;" src="https://www.sneakerlost.es/hubfs/5-ejemplos-de-como-fijar-los-objetivos-SMART-02.png" class="d-block " alt="nueva imagen2">
-            <p style="color: white;font-size: 1.5rem;;">Sexto de primaria</p>
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-    </div>
-  </div>
 
-</header> {% endcomment %}
 {% endblock %}
 
 {% block content %}
   <div class="d-flex row justify-content-center slot-list-view" >
       <h2 class="text-center mt-5 mb-4" style="font-size: 3rem;">Horarios de los cursos</h2>
-      {% comment %} <div class="d-flex row justify-content-center" style="height: auto">
-        <div class=" d-flex  justify-content-center align-items-center" style="width: 73%;">
-          <div  class="tablero bg-info d-flex flex-column justify-content-center align-items-center ">
-            <div>
-              <p class="letras">niveles</p>
-              {%for numero in numeroNiveles.all %}
-                {%if forloop.last %} 
-                  <p class="numero">{{forloop.counter}}</p>
-                {%endif%}
-              {%endfor%}
-            </div>  
-          </div>
-          <div  class="bg-success tablero d-flex flex-column justify-content-center align-items-center">
-            <div>
-              <p class="letras" >cursos</p>
-              {%for numero in numeroCursos.all %}
-                {%if forloop.last %} 
-                  <p class="numero">{{forloop.counter}}</p>
-                {%endif%}
-              {%endfor%}
-            </div>
-          </div>
-          <div  class="bg-danger tablero d-flex flex-column justify-content-center align-items-center">
-            <div>
-              <p class="letras">capitulos</p>
-              {%for numero in numeroCapitulos.all %}
-                {%if forloop.last %} 
-                  <p class="numero">{{forloop.counter}}</p>
-                {%endif%}
-              {%endfor%}
-            </div>
-          </div>
-          <div  class="bg-dark tablero d-flex flex-column justify-content-center align-items-center">
-            <div>
-              <p class="letras">Comentarios</p>
-              {%for numero in numeroComentarios.all %}
-                {%if forloop.last %} 
-                  <p class="numero">{{forloop.counter}}</p>
-                {%endif%}
-              {%endfor%}
-            </div>
-          </div>
-        </div>
-      </div> {% endcomment %}
+  
 
       <div class="d-flex justify-content-center">
         <div class="contenedor-niveles">
@@ -125,27 +40,19 @@
                           <table id="class-time-table" class="tabla-encabezado">
                             <tr>
                               <th></th>                    
-                              {% comment %} <th scope="row">8 a.m. - 9 a.m.</th>
-                              <th scope="row">9 a.m. - 10 a.m.</th>
-                              <th scope="row">10 a.m. - 11 a.m.</th>
-                              <th scope="row">11 a.m. - 12 m.</th>
-                              <th scope="row">12 m. - 13 p.m.</th> {% endcomment %}
+                      
 
                               <th scope="row">Lunes</th>
                               <th scope="row">Martes</th>
                               <th scope="row">Miercoles</th>
                               <th scope="row">Jueves</th>
-                              <th scope="row">Viernes</th>
-                              {% comment %} <th scope="row">1 p.m.</th>
-                              <th scope="row">2 p.m.</th> {% endcomment %}
+                              <th scope="row">Viernes</th>                             
                             </tr>
 
                             <tr>
                                                             
                               <th>8 a.m. - 9 a.m.</th>
-                                                          
-                              {% for slt in slotsAll.all %}                                
-                                                              
+                                                                                                                                             
                                                                                       
                                 {%for subject in a.subjects.all%}
                                 
@@ -155,101 +62,174 @@
                                      
                                     
                                     
-                                        {%if slot.day.id == 1 and slot.slot.id == slt.id %}                                                                                                                                    
+                                        {%if slot.day.id == 1 and slot.slot.id == 1 %}                                                                                                                                    
                                           <td  style="background-color: hsl({{slot.slot_subject.id|multiplicar }}, 71%, 82%);" >{{slot.slot_subject}} </td>   
-                                          {% define 1 as variable %}                                                                                                                                                                                        
-                                        {% endif %}                                                   
+                                    
+                                        {% endif %}    
+                                        {%if slot.day.id == 2 and slot.slot.id == 1 %}                                                                                                                                    
+                                        <td  style="background-color: hsl({{slot.slot_subject.id|multiplicar }}, 71%, 82%);" >{{slot.slot_subject}} </td>   
+                                      
+                                        {% endif %}  
+                                        {%if slot.day.id == 3 and slot.slot.id == 1 %}                                                                                                                                    
+                                          <td  style="background-color: hsl({{slot.slot_subject.id|multiplicar }}, 71%, 82%);" >{{slot.slot_subject}} </td>   
+                                       
+                                        {% endif %}  
+                                        {%if slot.day.id == 4 and slot.slot.id == 1 %}                                                                                                                                    
+                                          <td  style="background-color: hsl({{slot.slot_subject.id|multiplicar }}, 71%, 82%);" >{{slot.slot_subject}} </td>   
+                                         
+                                        {% endif %}  
+                                        {%if slot.day.id == 5 and slot.slot.id == 1%}                                                                                                                                    
+                                          <td  style="background-color: hsl({{slot.slot_subject.id|multiplicar }}, 71%, 82%);" >{{slot.slot_subject}} </td>   
+                                      
+                                        {% endif %}                                             
                                       {%endfor%}                                                                                                                                                           
                                   {% endif %}
-                                  {% if total.all.count|add:variable == total.all.count %}
-                                    <td>{{total.all.count|add:variable}}</td>                                    
-                                  {% endif %} 
+                         
                                 {%endfor%}
-                                                                                                                                      
-
-                              {% endfor %}
+                                                                                                                    
                             
                             </tr>
                             <tr>
                               <th>9 a.m. - 10 a.m.</th>
-                              {% for slt in slotsAll.all %}
-                              
-                                  {%for subject in a.subjects.all%}
-
-                                          {%for slot in subject.standard_slots_subject.all %}
+                              {%for subject in a.subjects.all%}
+                                
+                                {%if subject.standard_slots_subject.all.count != 0 %}
+                                                                          
+                                    {%for slot in subject.standard_slots_subject.all %}
+                                  
+                                  
+                                  
+                                      {%if slot.day.id == 1 and slot.slot.id == 2 %}                                                                                                                                    
+                                        <td  style="background-color: hsl({{slot.slot_subject.id|multiplicar }}, 71%, 82%);" >{{slot.slot_subject}} </td>   
+                                
+                                      {% endif %}    
+                                      {%if slot.day.id == 2 and slot.slot.id == 2 %}                                                                                                                                    
+                                      <td  style="background-color: hsl({{slot.slot_subject.id|multiplicar }}, 71%, 82%);" >{{slot.slot_subject}} </td>   
+                             
+                                      {% endif %}  
+                                      {%if slot.day.id == 3 and slot.slot.id == 2 %}                                                                                                                                    
+                                        <td  style="background-color: hsl({{slot.slot_subject.id|multiplicar }}, 71%, 82%);" >{{slot.slot_subject}} </td>   
+                           
+                                      {% endif %}  
+                                      {%if slot.day.id == 4 and slot.slot.id == 2 %}                                                                                                                                    
+                                        <td  style="background-color: hsl({{slot.slot_subject.id|multiplicar }}, 71%, 82%);" >{{slot.slot_subject}} </td>   
+                                      
+                                      {% endif %}  
+                                      {%if slot.day.id == 5 and slot.slot.id == 2%}                                                                                                                                    
+                                        <td  style="background-color: hsl({{slot.slot_subject.id|multiplicar }}, 71%, 82%);" >{{slot.slot_subject}} </td>   
+                                    
+                                      {% endif %}                                             
+                                    {%endfor%}                                                                                                                                                           
+                                {% endif %}
+                
+                              {%endfor%}
                                           
-                                              {%if slot.day.id == 2 %} 
-                                              
-                                              
-                                                  {% if  slot.slot.id == slt.id %}
-                                                      <td  style="background-color: hsl({{slot.slot_subject.id | multiplicar }}, 71%, 82%);" >{{slot.slot_subject}}</td> 
-                                                  
-                                                  {% endif %}
-                                              {% endif %}
-                                          {%endfor%}                                                                                                                      
-                                  {%endfor%}  
-                              {% endfor %}
                             </tr>
                             <tr>
                               <th>10 a.m. - 11 a.m.</th>
-                              {% for slt in slotsAll.all %}
-                              
-                                  {%for subject in a.subjects.all%}
-
-                                          {%for slot in subject.standard_slots_subject.all %}
+                              {%for subject in a.subjects.all%}
+                                
+                                {%if subject.standard_slots_subject.all.count != 0 %}
+                                                                          
+                                    {%for slot in subject.standard_slots_subject.all %}
+                                                                                                      
+                                      {%if slot.day.id == 1 and slot.slot.id == 3%}                                                                                                                                    
+                                        <td  style="background-color: hsl({{slot.slot_subject.id|multiplicar }}, 71%, 82%);" >{{slot.slot_subject}} </td>   
+                                  
+                                      {% endif %}    
+                                      {%if slot.day.id == 2 and slot.slot.id == 3 %}                                                                                                                                    
+                                      <td  style="background-color: hsl({{slot.slot_subject.id|multiplicar }}, 71%, 82%);" >{{slot.slot_subject}} </td>   
+                        
+                                      {% endif %}  
+                                      {%if slot.day.id == 3 and slot.slot.id == 3 %}                                                                                                                                    
+                                        <td  style="background-color: hsl({{slot.slot_subject.id|multiplicar }}, 71%, 82%);" >{{slot.slot_subject}} </td>   
+                                   
+                                      {% endif %}  
+                                      {%if slot.day.id == 4 and slot.slot.id == 3 %}                                                                                                                                    
+                                        <td  style="background-color: hsl({{slot.slot_subject.id|multiplicar }}, 71%, 82%);" >{{slot.slot_subject}} </td>   
+                                  
+                                      {% endif %}  
+                                      {%if slot.day.id == 5 and slot.slot.id == 3%}                                                                                                                                    
+                                        <td  style="background-color: hsl({{slot.slot_subject.id|multiplicar }}, 71%, 82%);" >{{slot.slot_subject}} </td>   
+                          
+                                      {% endif %}                                             
+                                    {%endfor%}                                                                                                                                                           
+                                {% endif %}
+                           
+                              {%endfor%}
                                           
-                                              {%if slot.day.id == 3 %} 
-                                              
-                                              
-                                                  {% if  slot.slot.id == slt.id %}
-                                                      <td  style="background-color: hsl({{slot.slot_subject.id | multiplicar }}, 71%, 82%);" >{{slot.slot_subject}}</td> 
-                                                  
-                                                  {% endif %}
-                                              {% endif %}
-                                          {%endfor%}                                                                                                                      
-                                  {%endfor%}  
-                              {% endfor %}
                             </tr>
                             <tr>
                               <th>11 a.m. - 12 m.</th>
-                              {% for slt in slotsAll.all %}
-                              
-                              {%for subject in a.subjects.all%}
-
+                                {%for subject in a.subjects.all%}
+                                  
+                                  {%if subject.standard_slots_subject.all.count != 0 %}
+                                                                            
                                       {%for slot in subject.standard_slots_subject.all %}
-                                      
-                                          {%if slot.day.id == 4 %} 
+                                    
+                                    
+                                    
+                                        {%if slot.day.id == 1 and slot.slot.id == 4 %}                                                                                                                                    
+                                          <td  style="background-color: hsl({{slot.slot_subject.id|multiplicar }}, 71%, 82%);" >{{slot.slot_subject}} </td>   
+                             
+                                        {% endif %}    
+                                        {%if slot.day.id == 2 and slot.slot.id == 4 %}                                                                                                                                    
+                                        <td  style="background-color: hsl({{slot.slot_subject.id|multiplicar }}, 71%, 82%);" >{{slot.slot_subject}} </td>   
+                                   
+                                        {% endif %}  
+                                        {%if slot.day.id == 3 and slot.slot.id == 4 %}                                                                                                                                    
+                                          <td  style="background-color: hsl({{slot.slot_subject.id|multiplicar }}, 71%, 82%);" >{{slot.slot_subject}} </td>   
+                   
+                                        {% endif %}  
+                                        {%if slot.day.id == 4 and slot.slot.id == 4 %}                                                                                                                                    
+                                          <td  style="background-color: hsl({{slot.slot_subject.id|multiplicar }}, 71%, 82%);" >{{slot.slot_subject}} </td>   
+                                
+                                        {% endif %}  
+                                        {%if slot.day.id == 5 and slot.slot.id == 4%}                                                                                                                                    
+                                          <td  style="background-color: hsl({{slot.slot_subject.id|multiplicar }}, 71%, 82%);" >{{slot.slot_subject}} </td>   
+                                 
+                                        {% endif %}                                             
+                                      {%endfor%}                                                                                                                                                           
+                                  {% endif %}
+                                 
+                                {%endfor%}
                                           
-                                          
-                                              {% if  slot.slot.id == slt.id %}
-                                                  <td  style="background-color: hsl({{slot.slot_subject.id | multiplicar }}, 71%, 82%);" >{{slot.slot_subject}}</td> 
-                                              
-                                              {% endif %}
-                                          {% endif %}
-                                      {%endfor%}                                                                                                                      
-                              {%endfor%}  
-                          {% endfor %}
                             </tr>
                             <tr>
                               <th>12 m. - 13 p.m.</th>
-                              {% for slt in slotsAll.all %}
-                              
-                              {%for subject in a.subjects.all%}
-
+                                {%for subject in a.subjects.all%}
+                                  
+                                  {%if subject.standard_slots_subject.all.count != 0 %}
+                                                                            
                                       {%for slot in subject.standard_slots_subject.all %}
+                                    
+                                    
+                                    
+                                        {%if slot.day.id == 1 and slot.slot.id == 5 %}                                                                                                                                    
+                                          <td  style="background-color: hsl({{slot.slot_subject.id|multiplicar }}, 71%, 82%);" >{{slot.slot_subject}} </td>   
                                       
-                                          {%if slot.day.id == 5 %} 
+                                        {% endif %}    
+                                        {%if slot.day.id == 2 and slot.slot.id == 5 %}                                                                                                                                    
+                                        <td  style="background-color: hsl({{slot.slot_subject.id|multiplicar }}, 71%, 82%);" >{{slot.slot_subject}} </td>   
+                                      
+                                        {% endif %}  
+                                        {%if slot.day.id == 3 and slot.slot.id == 5 %}                                                                                                                                    
+                                          <td  style="background-color: hsl({{slot.slot_subject.id|multiplicar }}, 71%, 82%);" >{{slot.slot_subject}} </td>   
+                            
+                                        {% endif %}  
+                                        {%if slot.day.id == 4 and slot.slot.id == 5 %}                                                                                                                                    
+                                          <td  style="background-color: hsl({{slot.slot_subject.id|multiplicar }}, 71%, 82%);" >{{slot.slot_subject}} </td>   
+                             
+                                        {% endif %}  
+                                        {%if slot.day.id == 5 and slot.slot.id == 5%}                                                                                                                                    
+                                          <td  style="background-color: hsl({{slot.slot_subject.id|multiplicar }}, 71%, 82%);" >{{slot.slot_subject}} </td>   
+                             
+                                        {% endif %}                                             
+                                      {%endfor%}                                                                                                                                                           
+                                  {% endif %}
+                               
+                                {%endfor%}
                                           
-                                          
-                                              {% if  slot.slot.id == slt.id %}
-                                                  <td  style="background-color: hsl({{slot.slot_subject.id | multiplicar }}, 71%, 82%);" >{{slot.slot_subject}}</td> 
-                                              
-                                              {% endif %}
-                                          {% endif %}
-                                      {%endfor%}                                                                                                                      
-                              {%endfor%}  
-                          {% endfor %}
-                              
                             </tr>
                           </table>
                           
@@ -445,19 +425,26 @@
                               <table id="class-time-table" class="tabla-encabezado">
                                 <tr>
                                   <th></th>                    
-                                  <th scope="row">8 a.m.</th>
-                                  <th scope="row">9 a.m.</th>
-                                  <th scope="row">10 a.m.</th>
-                                  <th scope="row">11 a.m.</th>
-                                  <th scope="row">12 m.</th>
-                                  <th scope="row">1 p.m.</th>
-                                  <th scope="row">2 p.m.</th>
+                                  {% comment %} <th scope="row">8 a.m. - 9 a.m.</th>
+                                  <th scope="row">9 a.m. - 10 a.m.</th>
+                                  <th scope="row">10 a.m. - 11 a.m.</th>
+                                  <th scope="row">11 a.m. - 12 m.</th>
+                                  <th scope="row">12 m. - 13 p.m.</th> {% endcomment %}
+    
+                                  <th scope="row">Lunes</th>
+                                  <th scope="row">Martes</th>
+                                  <th scope="row">Miercoles</th>
+                                  <th scope="row">Jueves</th>
+                                  <th scope="row">Viernes</th>
+                                  {% comment %} <th scope="row">1 p.m.</th>
+                                  <th scope="row">2 p.m.</th> {% endcomment %}
                                 </tr>
     
-                                <tr>                                                                
-                                  <th>Lunes</th>
+                                <tr>
+                                                                
+                                  <th>8 a.m. - 9 a.m.</th>
                                                               
-                                  {% for slt in slotsAll.all %}                                
+                                  {% comment %} {% for slt in slotsAll.all %}                                 {% endcomment %}
                                                                   
                                                                                           
                                     {%for subject in a.subjects.all%}
@@ -465,77 +452,186 @@
                                       {%if subject.standard_slots_subject.all.count != 0 %}
                                                                                 
                                           {%for slot in subject.standard_slots_subject.all %}
-                                                  
-                                            {%if slot.day.id == 1 and slot.slot == slt %}                                                                                                                                         
+                                         
+                                        
+                                        
+                                            {%if slot.day.id == 1 and slot.slot.id == 1 %}                                                                                                                                    
                                               <td  style="background-color: hsl({{slot.slot_subject.id|multiplicar }}, 71%, 82%);" >{{slot.slot_subject}} </td>   
-                                              {% define 1 as variable %}                                                                                                                                                                                        
-                                            {% endif %}                                                    
+                                 
+                                            {% endif %}    
+                                            {%if slot.day.id == 2 and slot.slot.id == 1 %}                                                                                                                                    
+                                            <td  style="background-color: hsl({{slot.slot_subject.id|multiplicar }}, 71%, 82%);" >{{slot.slot_subject}} </td>   
+                               
+                                            {% endif %}  
+                                            {%if slot.day.id == 3 and slot.slot.id == 1 %}                                                                                                                                    
+                                              <td  style="background-color: hsl({{slot.slot_subject.id|multiplicar }}, 71%, 82%);" >{{slot.slot_subject}} </td>   
+                                 
+                                            {% endif %}  
+                                            {%if slot.day.id == 4 and slot.slot.id == 1 %}                                                                                                                                    
+                                              <td  style="background-color: hsl({{slot.slot_subject.id|multiplicar }}, 71%, 82%);" >{{slot.slot_subject}} </td>   
+                                 
+                                            {% endif %}  
+                                            {%if slot.day.id == 5 and slot.slot.id == 1%}                                                                                                                                    
+                                              <td  style="background-color: hsl({{slot.slot_subject.id|multiplicar }}, 71%, 82%);" >{{slot.slot_subject}} </td>   
+                                 
+                                            {% endif %}                                             
                                           {%endfor%}                                                                                                                                                           
                                       {% endif %}
-                                      {% if total.all.count|add:variable == total.all.count %}
-                                        <td>{{total.all.count|add:variable}}</td>                                    
-                                      {% endif %} 
-                                    {%endfor%}                                                                                                                                         
-                                  {% endfor %}                                
-                                </tr>
-                                <tr>
-                                  <th>Martes</th>
-                                  {% for slt in slotsAll.all %}
-                                  
-                                      {%for subject in a.subjects.all%}
+                                   
+                                    {%endfor%}
+                                                                                                                                          
     
-                                              {%for slot in subject.standard_slots_subject.all %}
-                                              
-                                                  {%if slot.day.id == 2 %} 
-                                                                                                    
-                                                      {% if  slot.slot == slt %}
-                                                          <td  style="background-color: hsl({{slot.slot_subject.id | multiplicar }}, 71%, 82%);" >{{slot.slot_subject}}</td> 
-                                                      
-                                                      {% endif %}
-                                                  {% endif %}
-                                              {%endfor%}                                                                                                                      
-                                      {%endfor%}  
-                                  {% endfor %}
-                                </tr>
-                                <tr>
-                                  <th>Miercoles</th>
-                                  {% for slt in slotsAll.all %}                                  
-                                      {%for subject in a.subjects.all%}    
-                                              {%for slot in subject.standard_slots_subject.all %}
-                                              
-                                                  {%if slot.day.id == 3 %} 
-                                                                                                    
-                                                      {% if  slot.slot == slt %}
-                                                          <td  style="background-color: hsl({{slot.slot_subject.id | multiplicar }}, 71%, 82%);" >{{slot.slot_subject}}</td> 
-                                                      
-                                                      {% endif %}
-                                                  {% endif %}
-                                              {%endfor%}                                                                                                                      
-                                      {%endfor%}  
-                                  {% endfor %}
-                                </tr>
-                                <tr>
-                                  <th>Jueves</th>
-                                  {%for slot in subjectsAll%}                                
-                                    {%if slot.day.id == 4 %}                          
-                                      {%if slot.standard|parseada == a.name|parseada %}                                                           
-                                        <td  style="background-color: hsl({{slot.slot_subject.id | multiplicar }}, 71%, 82%);" >{{slot.slot_subject}}</td>                                                {%endif%}                                     
-                                    {% endif %}    
-                                  {% endfor %}
-                                </tr>
-                                <tr>
-                                  <th>Viernes</th>
-                                  {%for slot in subjectsAll%}
                                 
-                                    {%if slot.day.id == 5 %}                          
-                                      {%if slot.standard|parseada == a.name|parseada %}                                                           
-                                        <td  style="background-color: hsl({{slot.slot_subject.id | multiplicar }}, 71%, 82%);" >{{slot.slot_subject}}</td>                                                {%endif%}                                     
-                                    {% endif %}    
-                                  {% endfor %}                                  
                                 </tr>
-                              </table>                              
-                        </div>                          
-                      </section>     
+                                <tr>
+                                  <th>9 a.m. - 10 a.m.</th>
+                                  {%for subject in a.subjects.all%}
+                                    
+                                    {%if subject.standard_slots_subject.all.count != 0 %}
+                                                                              
+                                        {%for slot in subject.standard_slots_subject.all %}
+                                      
+                                      
+                                      
+                                          {%if slot.day.id == 1 and slot.slot.id == 2 %}                                                                                                                                    
+                                            <td  style="background-color: hsl({{slot.slot_subject.id|multiplicar }}, 71%, 82%);" >{{slot.slot_subject}} </td>   
+                               
+                                          {% endif %}    
+                                          {%if slot.day.id == 2 and slot.slot.id == 2 %}                                                                                                                                    
+                                          <td  style="background-color: hsl({{slot.slot_subject.id|multiplicar }}, 71%, 82%);" >{{slot.slot_subject}} </td>   
+                             
+                                          {% endif %}  
+                                          {%if slot.day.id == 3 and slot.slot.id == 2 %}                                                                                                                                    
+                                            <td  style="background-color: hsl({{slot.slot_subject.id|multiplicar }}, 71%, 82%);" >{{slot.slot_subject}} </td>   
+                               
+                                          {% endif %}  
+                                          {%if slot.day.id == 4 and slot.slot.id == 2 %}                                                                                                                                    
+                                            <td  style="background-color: hsl({{slot.slot_subject.id|multiplicar }}, 71%, 82%);" >{{slot.slot_subject}} </td>   
+                               
+                                          {% endif %}  
+                                          {%if slot.day.id == 5 and slot.slot.id == 2%}                                                                                                                                    
+                                            <td  style="background-color: hsl({{slot.slot_subject.id|multiplicar }}, 71%, 82%);" >{{slot.slot_subject}} </td>   
+                               
+                                          {% endif %}                                             
+                                        {%endfor%}                                                                                                                                                           
+                                    {% endif %}
+                                 
+                                  {%endfor%}
+                                              
+                                </tr>
+                                <tr>
+                                  <th>10 a.m. - 11 a.m.</th>
+                                  {%for subject in a.subjects.all%}
+                                    
+                                    {%if subject.standard_slots_subject.all.count != 0 %}
+                                                                              
+                                        {%for slot in subject.standard_slots_subject.all %}
+                                                                                                          
+                                          {%if slot.day.id == 1 and slot.slot.id == 3%}                                                                                                                                    
+                                            <td  style="background-color: hsl({{slot.slot_subject.id|multiplicar }}, 71%, 82%);" >{{slot.slot_subject}} </td>   
+                               
+                                          {% endif %}    
+                                          {%if slot.day.id == 2 and slot.slot.id == 3 %}                                                                                                                                    
+                                          <td  style="background-color: hsl({{slot.slot_subject.id|multiplicar }}, 71%, 82%);" >{{slot.slot_subject}} </td>   
+                             
+                                          {% endif %}  
+                                          {%if slot.day.id == 3 and slot.slot.id == 3 %}                                                                                                                                    
+                                            <td  style="background-color: hsl({{slot.slot_subject.id|multiplicar }}, 71%, 82%);" >{{slot.slot_subject}} </td>   
+                               
+                                          {% endif %}  
+                                          {%if slot.day.id == 4 and slot.slot.id == 3 %}                                                                                                                                    
+                                            <td  style="background-color: hsl({{slot.slot_subject.id|multiplicar }}, 71%, 82%);" >{{slot.slot_subject}} </td>   
+                               
+                                          {% endif %}  
+                                          {%if slot.day.id == 5 and slot.slot.id == 3%}                                                                                                                                    
+                                            <td  style="background-color: hsl({{slot.slot_subject.id|multiplicar }}, 71%, 82%);" >{{slot.slot_subject}} </td>   
+                               
+                                          {% endif %}                                             
+                                        {%endfor%}                                                                                                                                                           
+                                    {% endif %}
+                                 
+                                  {%endfor%}
+                                              
+                                </tr>
+                                <tr>
+                                  <th>11 a.m. - 12 m.</th>
+                                    {%for subject in a.subjects.all%}
+                                      
+                                      {%if subject.standard_slots_subject.all.count != 0 %}
+                                                                                
+                                          {%for slot in subject.standard_slots_subject.all %}
+                                        
+                                        
+                                        
+                                            {%if slot.day.id == 1 and slot.slot.id == 4 %}                                                                                                                                    
+                                              <td  style="background-color: hsl({{slot.slot_subject.id|multiplicar }}, 71%, 82%);" >{{slot.slot_subject}} </td>   
+                                 
+                                            {% endif %}    
+                                            {%if slot.day.id == 2 and slot.slot.id == 4 %}                                                                                                                                    
+                                            <td  style="background-color: hsl({{slot.slot_subject.id|multiplicar }}, 71%, 82%);" >{{slot.slot_subject}} </td>   
+                               
+                                            {% endif %}  
+                                            {%if slot.day.id == 3 and slot.slot.id == 4 %}                                                                                                                                    
+                                              <td  style="background-color: hsl({{slot.slot_subject.id|multiplicar }}, 71%, 82%);" >{{slot.slot_subject}} </td>   
+                                 
+                                            {% endif %}  
+                                            {%if slot.day.id == 4 and slot.slot.id == 4 %}                                                                                                                                    
+                                              <td  style="background-color: hsl({{slot.slot_subject.id|multiplicar }}, 71%, 82%);" >{{slot.slot_subject}} </td>   
+                                 
+                                            {% endif %}  
+                                            {%if slot.day.id == 5 and slot.slot.id == 4%}                                                                                                                                    
+                                              <td  style="background-color: hsl({{slot.slot_subject.id|multiplicar }}, 71%, 82%);" >{{slot.slot_subject}} </td>   
+                                 
+                                            {% endif %}                                             
+                                          {%endfor%}                                                                                                                                                           
+                                      {% endif %}
+                                      {% comment %} {% if total.all.count|add:variable == total.all.count %}
+                                        <td>{{total.all.count|add:variable}}</td>                                    
+                                      {% endif %}  {% endcomment %}
+                                    {%endfor%}
+                                              
+                                </tr>
+                                <tr>
+                                  <th>12 m. - 13 p.m.</th>
+                                    {%for subject in a.subjects.all%}
+                                      
+                                      {%if subject.standard_slots_subject.all.count != 0 %}
+                                                                                
+                                          {%for slot in subject.standard_slots_subject.all %}
+                                        
+                                        
+                                        
+                                            {%if slot.day.id == 1 and slot.slot.id == 5 %}                                                                                                                                    
+                                              <td  style="background-color: hsl({{slot.slot_subject.id|multiplicar }}, 71%, 82%);" >{{slot.slot_subject}} </td>   
+                                 
+                                            {% endif %}    
+                                            {%if slot.day.id == 2 and slot.slot.id == 5 %}                                                                                                                                    
+                                            <td  style="background-color: hsl({{slot.slot_subject.id|multiplicar }}, 71%, 82%);" >{{slot.slot_subject}} </td>   
+                               
+                                            {% endif %}  
+                                            {%if slot.day.id == 3 and slot.slot.id == 5 %}                                                                                                                                    
+                                              <td  style="background-color: hsl({{slot.slot_subject.id|multiplicar }}, 71%, 82%);" >{{slot.slot_subject}} </td>   
+                                 
+                                            {% endif %}  
+                                            {%if slot.day.id == 4 and slot.slot.id == 5 %}                                                                                                                                    
+                                              <td  style="background-color: hsl({{slot.slot_subject.id|multiplicar }}, 71%, 82%);" >{{slot.slot_subject}} </td>   
+                                 
+                                            {% endif %}  
+                                            {%if slot.day.id == 5 and slot.slot.id == 5%}                                                                                                                                    
+                                              <td  style="background-color: hsl({{slot.slot_subject.id|multiplicar }}, 71%, 82%);" >{{slot.slot_subject}} </td>   
+                                 
+                                            {% endif %}                                             
+                                          {%endfor%}                                                                                                                                                           
+                                      {% endif %}
+                                    
+                                    {%endfor%}
+                                              
+                                </tr>
+                              </table>
+                              
+                        </div>
+                          
+                      </section>  
                       <div style="width: 100%;" class="d-flex justify-content-center ">
                         <table class="table table-hover">
                           <thead>
