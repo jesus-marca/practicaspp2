@@ -328,7 +328,7 @@
                         <div class="card-footer py-3 border-0" style="background-color: #f8f9fa;">
                           <div class="d-flex flex-start w-100">
                             <img class="rounded-circle shadow-1-strong me-3"
-                              src='../../../../media/{{user.userprofileinfo.profile_pic | default:"Images/User_Profile_Pictures/None.jpg"}}' alt="avatar" width="40"
+                              src='{{user.userprofileinfo.profile_pic.url | default:"../../../../media/Images/User_Profile_Pictures/None.jpg"}}' alt="avatar" width="40"
                               height="40" />
                             <div class="form-outline w-100">
                               <form method="post" style="width: 75%;">
