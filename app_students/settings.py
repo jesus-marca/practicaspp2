@@ -49,6 +49,7 @@ INSTALLED_APPS = [
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -59,6 +60,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'app_students.urls'
+
+
 
 TEMPLATES = [
     {
@@ -89,27 +92,27 @@ WSGI_APPLICATION = 'app_students.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'cursos',
-        'USER':'postgres',
-        'PASSWORD':'root1234',
-        'HOST':'localhost',
-        'PORT':'5432',
-    }
-}
-
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'railway',
+#         'NAME': 'cursos',
 #         'USER':'postgres',
-#         'PASSWORD':'-C1d35-2G*F*-E*EA2-FAgBfC3aDbFg1',
-#         'HOST':'viaduct.proxy.rlwy.net',
-#         'PORT':'43920',
+#         'PASSWORD':'root1234',
+#         'HOST':'localhost',
+#         'PORT':'5432',
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'railway',
+        'USER':'postgres',
+        'PASSWORD':'b-Df44c5D2eg*5ag1dgD34bgd2g*eCA4',
+        'HOST':'monorail.proxy.rlwy.net',
+        'PORT':'17525',
+    }
+}
 
 
 
@@ -152,12 +155,15 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-STATICFILES_DIRS = [
-    STATIC_DIR,
-]
+# STATICFILES_DIRS = [
+#     STATIC_DIR,
+# ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 MEDIA_URL = '/media/'
+
+STATIC_ROOT = os.path.join(BASE_DIR,'static')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # STATIC_ROOT
 
 # DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
@@ -177,10 +183,6 @@ GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
 )
 DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 GS_BUCKET_NAME = 'pack-djangopp2'
-
-
-
-
 
 LOGIN_URL = '/app_users/user_login'
 
