@@ -146,7 +146,7 @@
                        {% for usuario in usuarios %}
                         {% if usuario.user.username|parseada == user.username|parseada  %}
                           <img class="rounded-circle shadow-1-strong me-3"
-                          src='../../../../media/{{usuario.profile_pic}}' alt="imagen" width="65"
+                          src='{{usuario.profile_pic.url}}' alt="imagen" width="65"
                           height="65" /> 
                         {% endif %}                      
                        {% endfor %}
@@ -177,20 +177,34 @@
                   {% for comment in lessons.comments.all %}
                     <div class="d-flex flex-start mt-4">
                       
-                        {%if comment.author|parseada == "admin" or comment.author|parseada == "admin1" %}
+                        {% comment %} {%if comment.author|parseada == "admin" or comment.author|parseada == "admin1" %} {% endcomment %}
+                        {%if comment.author.userprofileinfo.user_type %}
+                          {% for usuario in  usuarios %}
+                            {% if comment.author|parseada == usuario.user.username|parseada %}                            
+                              <img class="rounded-circle shadow-1-strong me-3"
+                              src='{{usuario.profile_pic.url}}' alt="imagen" width="65"
+                              height="65" />
+                            {% endif %}
+                        
+                          {% endfor %}
+                          
+                        
+                          {% comment %} <img class="rounded-circle shadow-1-strong me-3"
+                          src='../../../../media/Images/User_Profile_Pictures/None.jpg' alt="imagen" width="65"
+                          height="65" /> {% endcomment %}
+
+                        {% else %}
                           <img class="rounded-circle shadow-1-strong me-3"
                           src='../../../../media/Images/User_Profile_Pictures/None.jpg' alt="imagen" width="65"
                           height="65" />
-
-                        {% else %}
-                          {% for usuario in  usuarios %}
+                          {% comment %} {% for usuario in  usuarios %}
                             {% if comment.author|parseada == usuario.user.username|parseada %}                            
                               <img class="rounded-circle shadow-1-strong me-3"
                               src='../../../../media/{{usuario.profile_pic}}' alt="imagen" width="65"
                               height="65" />
                             {% endif %}
                           
-                          {% endfor %}
+                          {% endfor %} {% endcomment %}
            
                         {%endif%}
                         {% comment %} {%for usuario in usuarios%}
@@ -219,8 +233,34 @@
                           </p>
                         </div>
                         {% for reply in comment.replies.all %}
-                          {%if reply.author|parseada == "admin" or reply.author|parseada == "admin1" %}
-                            <div class="d-flex flex-start mt-4">
+                          {% comment %} {%if reply.author|parseada == "admin" or reply.author|parseada == "admin1" %} {% endcomment %}
+                          {%if reply.author.userprofileinfo.user_type %}
+                            {%for usuario in usuarios%}
+                              {%if usuario.user.username|parseada == reply.author|parseada%}
+                                <div class="d-flex flex-start mt-4">
+                                  <a class="me-3" href="#">
+                                      <img class="rounded-circle shadow-1-strong me-3"
+                                      src='{{usuario.profile_pic.url}}' alt="imagen" width="65"
+                                      height="65" />
+                                  </a>
+                                  <div class="flex-grow-1 flex-shrink-1">
+                                    <div>
+                                      <div class="d-flex justify-content-between align-items-center">
+                                        <p class="mb-1">
+                                          {{reply.author}} <span class="small">- Fecha: {{reply.date_added}}</span>
+                                        </p>
+                                      </div>
+                                      <p class="small mb-0">
+                                        {{reply.reply_body}}
+                                      </p>
+                                    </div>
+                                  </div>
+                                </div>
+                              {%endif%}
+                            {% endfor %}
+
+
+                            {% comment %} <div class="d-flex flex-start mt-4">
                               <a class="me-3" href="#">
                                   <img class="rounded-circle shadow-1-strong me-3"
                                   src='../../../../media/Images/User_Profile_Pictures/None.jpg' alt="imagen" width="65"
@@ -238,10 +278,10 @@
                                   </p>
                                 </div>
                               </div>
-                            </div>
+                            </div> {% endcomment %}
                           
                           {% else %}
-                            {%for usuario in usuarios%}
+                            {% comment %} {%for usuario in usuarios%}
                               {%if usuario.user.username|parseada == reply.author|parseada%}
                                 <div class="d-flex flex-start mt-4">
                                   <a class="me-3" href="#">
@@ -263,7 +303,26 @@
                                   </div>
                                 </div>
                               {%endif%}
-                            {% endfor %}
+                            {% endfor %} {% endcomment %}
+                            <div class="d-flex flex-start mt-4">
+                              <a class="me-3" href="#">
+                                  <img class="rounded-circle shadow-1-strong me-3"
+                                  src='../../../../media/Images/User_Profile_Pictures/None.jpg' alt="imagen" width="65"
+                                  height="65" />
+                              </a>
+                              <div class="flex-grow-1 flex-shrink-1">
+                                <div>
+                                  <div class="d-flex justify-content-between align-items-center">
+                                    <p class="mb-1">
+                                      {{reply.author}} <span class="small">- Fecha: {{reply.date_added}}</span>
+                                    </p>
+                                  </div>
+                                  <p class="small mb-0">
+                                    {{reply.reply_body}}
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
                           {% endif %}                                                
                         {% endfor %}
                         <div class="card-footer py-3 border-0" style="background-color: #f8f9fa;">
