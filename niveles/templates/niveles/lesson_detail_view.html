@@ -142,7 +142,8 @@
                       {% comment %} <img class="rounded-circle shadow-1-strong me-3"
                       src='../../../../media/{{user.userprofileinfo.profile_pic | default:"Images/User_Profile_Pictures/None.jpg"}}'alt="avatar" width="40"
                         height="40" /> {% endcomment %}
-                      {%if user.userprofileinfo.user_type == 'teacher' or user.userprofileinfo.user_type == 'student' %}
+                      {% comment %} {%if user.userprofileinfo.user_type == 'teacher' or user.userprofileinfo.user_type == 'student' %} {% endcomment %}
+                      {%if user.username != 'adjmr' %}
                        {% for usuario in usuarios %}
                         {% if usuario.user.username|parseada == user.username|parseada  %}
                           <img class="rounded-circle shadow-1-strong me-3"
