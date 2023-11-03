@@ -100,14 +100,14 @@
 
           <div class="row d-flex justify-content-center mb-3 mt-3">
             
-              {% if user.userprofileinfo.user_type == 'teacher' or user.is_superuser %}
+              {% comment %} {% if user.userprofileinfo.user_type == 'teacher' or user.is_superuser %} {% endcomment %}
               {% comment %} <div class="col-md-6 mb-3 text-center">
                   <a href="{% url 'niveles:lesson_update' standard=lessons.Standard.slug subject=lessons.subject.slug slug=lessons.slug %}" class="btn btn-info btn-lg mr-4 btn-block">Actualizar Capitulo</a>
               </div>
               <div class="col-md-6">
                   <a href="{% url 'niveles:lesson_delete' standard=lessons.Standard.slug subject=lessons.subject.slug slug=lessons.slug %}" class="btn btn-danger btn-lg mr-4 btn-block">Eliminar Capitulo </a>
               </div> {% endcomment %}
-              {% endif %}
+              {% comment %} {% endif %} {% endcomment %}
             </div>
       </section>
     </div>
@@ -144,7 +144,7 @@
                         height="40" /> {% endcomment %}
                       {% comment %} {%if user.userprofileinfo.user_type == 'teacher' or user.userprofileinfo.user_type == 'student' %} {% endcomment %}
                       {%if user.username != 'adjmr' %}
-                       {% for usuario in usuarios %}
+                       {% for usuario in usuarios.all %}
                         {% if usuario.user.username|parseada == user.username|parseada  %}
                           <img class="rounded-circle shadow-1-strong me-3"
                           src='{{usuario.profile_pic.url}}' alt="imagen" width="65"
@@ -180,7 +180,7 @@
                       
                         {% comment %} {%if comment.author|parseada == "admin" or comment.author|parseada == "admin1" %} {% endcomment %}
                         {%if comment.author.userprofileinfo.user_type %}
-                          {% for usuario in  usuarios %}
+                          {% for usuario in  usuarios.all %}
                             {% if comment.author|parseada == usuario.user.username|parseada %}                            
                               <img class="rounded-circle shadow-1-strong me-3"
                               src='{{usuario.profile_pic.url}}' alt="imagen" width="65"
@@ -236,7 +236,7 @@
                         {% for reply in comment.replies.all %}
                           {% comment %} {%if reply.author|parseada == "admin" or reply.author|parseada == "admin1" %} {% endcomment %}
                           {%if reply.author.userprofileinfo.user_type %}
-                            {%for usuario in usuarios%}
+                            {%for usuario in usuarios.all%}
                               {%if usuario.user.username|parseada == reply.author|parseada%}
                                 <div class="d-flex flex-start mt-4">
                                   <a class="me-3" href="#">
